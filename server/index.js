@@ -19,6 +19,14 @@ app.get(`/`, (req, res) => {
     rollbar.info('html file served successfully.')
 })
 
+app.get(`/`, (req,res) => {
+    try{
+        getShitOn()
+    } catch (err){
+        rollbar.error('shit')
+    }
+})
+
 const port = process.env.PORT || 4325
 
 app.use(rollbar.errorHandler())
